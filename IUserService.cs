@@ -12,9 +12,11 @@ namespace fekon_repository_api
     public interface IUserService
     {
         Task AddUserActHist(string userid, string actionDesc, string action);
+        Task CreateNewAdminEmpDataAsync(RefEmployee refEmployee);
         Task EditRefEmpAsync(RefEmployee re, string fileLoc, string username, IFormFile file);
         IQueryable<AspNetUser> GetAdminForPaging(string query);
         MergeAdminInfo GetAdminInfoByIdAsync(string id, int takeItem, ref bool canloadmore);
+        IEnumerable<AspNetRole> GetListRole();
         RefEmployee GetRefEmployeeObjByUserId(string userid);
         IQueryable<AspNetUser> GetUsersForPaging(string query);
     }

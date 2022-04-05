@@ -14,7 +14,7 @@ namespace fekon_repository_api
     {
         Task<string> CreateNewRepoAsync(Repository repository, List<IFormFile> files, List<long> authorIds, List<string> langCode);
         Task DeleteRepoAsync(long id);
-        Task<string> EditRepoAsync(Repository repository, List<IFormFile> files, List<long> authorIds, List<string> langCode);
+        Task<string> EditRepoAsync(Repository repository, List<IFormFile> files, List<long> authorIds, List<string> langCode, string userEdit);
         Task<FileDetail> GetFileDetailForViewAsync(long id);
         Task<MergeRepoView> GetRepoByIdAsync(long id);
         Task<MergeRepoIndex> GetRepositoriesForIndexHomePageAsync();
