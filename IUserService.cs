@@ -16,6 +16,7 @@ namespace fekon_repository_api
         Task EditRefEmpAsync(RefEmployee re, string fileLoc, string username, IFormFile file);
         IQueryable<AspNetUser> GetAdminForPaging(string query);
         MergeAdminInfo GetAdminInfoByIdAsync(string id, int takeItem, ref bool canloadmore);
+        IEnumerable<MergeUserDownloadHist> GetDownloadUserStatistics(string id, DateTime? dt, int pagenumber, out bool canload);
         IEnumerable<AspNetRole> GetListRole();
         RefEmployee GetRefEmployeeObjByUserId(string userid);
         IQueryable<AspNetUser> GetUsersForPaging(string query);
