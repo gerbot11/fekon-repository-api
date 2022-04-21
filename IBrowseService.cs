@@ -10,7 +10,7 @@ namespace fekon_repository_api
     {
         IQueryable<Repository> AuthorBrowseResult(long authorId, string category = "", long subcategory = 0);
         Task<IEnumerable<Repository>> BrowseReposByCategoryAsync(string category, long subcategory);
-        IQueryable<Repository> PublishDtBrowseResult(DateTime publishDt);
+        IQueryable<Repository> PublishDtBrowseResult(DateTime publishDt, string cat, long subcat);
         IQueryable<Repository> YearRangeBrowseResult(string yrange);
     }
 }

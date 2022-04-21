@@ -17,6 +17,7 @@ namespace fekon_repository_api
         List<string> GetAuthorNameByRepositoryId(long repoid);
         Task<IEnumerable<Author>> GetAuthorsAdvisorAsync();
         IQueryable<Author> GetAuthorsForIndexDash(string query, string isadv);
+        Task<IEnumerable<MergeAuthorGrouping>> GetListAdvisiorForSideMenu();
         IEnumerable<Author> GetListAuthorByReposId(long repoid);
         Task<IEnumerable<Author>> GetListAuthorForAddRepos();
         Task<IEnumerable<MergeAuthorGrouping>> GetListAuthorForSideMenu();
