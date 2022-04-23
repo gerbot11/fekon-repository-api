@@ -13,7 +13,9 @@ namespace fekon_repository_api
         Task<string> AddNewAuthorAsync(Author author);
         Task<string> DeleteAuthorAsync(long id);
         Task<string> EditAuthorAsync(Author author);
+        IQueryable<Author> GetAdvisiorForSelectionByName(string name);
         Task<Author> GetAuthorByAuthorIdAsync(long id);
+        IQueryable<Author> GetAuthorForSelectionByName(string name);
         List<string> GetAuthorNameByRepositoryId(long repoid);
         Task<IEnumerable<Author>> GetAuthorsAdvisorAsync();
         IQueryable<Author> GetAuthorsForIndexDash(string query, string isadv);
