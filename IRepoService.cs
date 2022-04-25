@@ -1,26 +1,22 @@
 ﻿using fekon_repository_datamodel.MergeModels;
 using fekon_repository_datamodel.Models;
-using Microsoft.AspNetCore.Http;
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace fekon_repository_api
 {
     public interface IRepoService
     {
-        Task<string> CreateNewRepoAsync(Repository repository, List<RepoFile> files, List<long> authorIds);
+        Task<string> CreateNewRepoAsync(Repository repository, List<RepoFile> files, List<long> authorIds, List<string> keywords);
         Task DeleteRepoAsync(long id);
-        Task<string> EditRepoAsync(Repository repository, List<RepoFile> files, List<long> authorIds, string userEdit);
+        Task<string> EditRepoAsync(Repository repository, List<RepoFile> files, List<long> authorIds, string userEdit, List<string> keywords);
         Task<FileDetail> GetFileDetailForViewAsync(long id);
         Task<MergeRepoView> GetRepoByIdAsync(long id);
         Task<MergeRepoIndex> GetRepositoriesForIndexHomePageAsync();
         IQueryable<Repository> GetRepositoriesForIndexPageAsync(string query);
         Repository GetRepositoryByRepoId(long id);
-        List<string> CheckFileStatus(IEnumerable<FileDetail> fileDetails);
         Dictionary<string, int> GetCountRepositoryOfRangeYear(List<string> year);
         IQueryable<Repository> MoreSearchResult(string title, long? type, long? colld, int? year, int? yearTo, string author);
         FileDetail GetFileDetailByFileName(string fname);
@@ -32,5 +28,7 @@ namespace fekon_repository_api
         Task<Dictionary<int, int>> GetListYearPublishAsync();
         IEnumerable<CurrentFileInfo> GetCurrentFileInfos(long repoid);
         string DeleteRepositoryFile(long id);
+        IEnumerable<KeywordsGrouping> GetGroupingKeywordForSideMenu();
+        bool CheckRepoHasFilePerType(long repoid, long typeid);
     }
 }
